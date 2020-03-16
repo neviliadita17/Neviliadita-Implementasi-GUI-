@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Bar</title>
+    <style>
+        .sidebar1{
+            width: 20%;
+            height: 100%;
+            background-color: greenyellow;
+            position: fixed;
+            transition: width 2s;
+        }
+        .main1{
+            width: auto;
+            margin-left: 20%;
+            padding-left: 10px;
+            transition: width 1s;
+        }
+        .sidebar{
+            width: 0%;
+            height: 100%;
+            background-color: greenyellow;
+            position: fixed;
+            overflow: auto;
+            transition: width 1s;
+        }
+        .main{
+            width: auto;
+            height: 100%;
+            margin-left: 0%;
+        }
+        h1{
+            margin: 0px;
+        }
+        .span_close{
+            font-size: 50px; 
+            cursor: pointer; 
+            float: right; 
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="mySidebar">
+        <span class="span_close" onclick="closeNav()">&times;</span>
+        <br><br>
+        <ul>
+            <li>Home</li>
+            <li>Profile</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <div class="main" id="main">
+        <span style="font-size: 30px; cursor: pointer;" onclick="openNav()">&#9776</span>
+        <h1>Story of My Life</h1>
+    </div>
+</body>
+<script type="text/javascript">
+    function openNav() {
+        document.getElementById('mySidebar').className="sidebar1";
+        document.getElementById('main').className="main1";
+        document.getElementById("openNav").style.display = 'none';
+    }
+    function closeNav() {
+        document.getElementById('mySidebar').className="sidebar";
+        document.getElementById('main').className="main";
+    }
+</script>
+</html>
