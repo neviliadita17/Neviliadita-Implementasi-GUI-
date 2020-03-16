@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="vue.js"></script>
+    <style>
+        .header {
+            height: 50px;
+            width: 100%;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 5px;
+        }
+
+        .header h1 {
+            font-size: large;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: antiquewhite;
+        }
+
+        .mainproduct {
+            margin-top: 100px;
+            width: 70%;
+            height: 100%;
+            float: left;
+
+        }
+
+        .cart {
+            margin-top: 100px;
+            width: 30%;
+            height: 100%;
+            float: left;
+
+        }
+
+        .listproduk {
+            width: 150px;
+            height: 200px;
+            float: left;
+            margin: 5px 5px;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+
+        }
+
+        .popup1 {
+            position: absolute;
+            margin: 100px 200px;
+            top: 100px;
+            left: 100px;
+            width: 350px;
+            height: 100px;
+            /* border: 2px solid black; */
+            background-color: rgba(255, 238, 0, 0.6);
+        }
+
+        .popup2 {
+            position: absolute;
+            margin: 100px 200px;
+            top: 100px;
+            left: 100px;
+            width: 350px;
+            height: 100px;
+            /* border: 2px solid black; */
+            background-color: rgba(255, 238, 0, 0.6);
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 50%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1> MOTORKU.com</h1>
+    </div>
+
+
+    <div id="container">
+
+        <div class="mainproduct">
+
+
+            <div class="listproduk" v-for="motorku in motor">
+
+                <div class="thumbnail">
+
+                    <img v-bind:src="motorku.image" width="125px" height="100px">
+                </div>
+
+                {{motorku.merek}}
+                <br>
+                Harga : {{motorku.harga}}
+
+                <button v-on:click="addCart(motorku.image)" type="button">Beli</button>
+
+
+            </div>
+
+        </div>
+        <div class="cart">
+            Keranjang Belanja
+            <br>
+
+            {{qty}}
+            <!-- <table>
+   
+    <tr v-for="merek in keranjangmerek">
+      <td >{{merek}}</td>
+      <td><button  v-on:click="removeCart(index)" type="button">X</button></td>
+      
+    </tr>
+
+
+  </table> -->
+            <table>
+                <tr v-for="(image,index) in keranjangimage">
+                    <td><img v-bind:src="image" width="100px" height="100px"></td>
+                    <td><button v-on:click="removeCart(index)" type="button">X</button></td>
+
+                </tr>
+            </table>
+
+            <!-- //{{keranjangimage}} -->
+
+        </div>
+
+        <div class="popup1" v-if="qty >= 3">Whoaa Holang Kaya Nihh!!!</div>
+        <div class="popup2" v-else-if="qty >= 2">Whoaa tukang borong nih!</div>
+
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#container',
+            data: {
+                motor: [{
+                    merek: 'supra',
+                    harga: 5500000,
+                    image: 'https://cdn0-production-images-kly.akamaized.net/QbYVo9CS2CJxhhhFQJMnDmLQ4q4=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2747152/original/088219600_1552155797-AHM_Honda_Supra_X_125_FI._06_.jpg'
+                }, {
+                    merek: 'mio',
+                    harga: 3400000,
+                    image: 'https://d2pa5gi5n2e1an.cloudfront.net/global/images/product/motorcycle/Yamaha_Mio/Yamaha_Mio_L_1.jpg'
+                }, {
+                    merek: 'NMax',
+                    harga: 2500000,
+                    image: 'https://d2pa5gi5n2e1an.cloudfront.net/global/images/product/motorcycle/Yamaha_NMAX_2018/Yamaha_NMAX_2018_L_1.jpg'
+                }, {
+                    merek: 'Shogun',
+                    harga: 3400000,
+                    image: 'https://d2pa5gi5n2e1an.cloudfront.net/webp/global/images/product/motorcycle/Suzuki_Shogun_Axelo125/Suzuki_Shogun_Axelo125_L_1.jpg'
+                }, {
+                    merek: 'Satria',
+                    harga: 1400000,
+                    image: 'https://www.suzuki.co.id//assets/static/img/variant/Satria-WhiteBlue.png'
+                }],
+                keranjangharga: [],
+                keranjangmerek: [],
+                keranjangimage: [],
+                qty: 0
+
+            },
+
+            /*            computed: {
+  total() {
+    return this.keranjangharga.reduce(function (sum, item) {
+        return sum + item
+    }, 0)
+  }
+},  */
+            methods: {
+
+                addCart: function (image) {
+                    //  this.keranjangharga.push(harga);
+                    //  this.keranjangmerek.push(merek);
+                    this.keranjangimage.push(image);
+                    this.qty += 1;
+                },
+                removeCart: function (index) {
+                    this.keranjangmerek.splice(index, 1)
+
+                    this.keranjangharga.splice(index, 1)
+
+                    this.keranjangimage.splice(index, 1)
+                    this.qty -= 1;
+                }
+            }
+        })
+    </script>
+
+
+
+</body>
+
+</html>
