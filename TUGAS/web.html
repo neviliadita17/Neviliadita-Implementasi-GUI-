@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device width, initial scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+
+        <style>
+            .container {
+                width: 800px;
+                height: 1500px;
+                border: 2px solid black;
+                margin: auto;
+                position: relative;
+            }
+
+            .judul {
+                padding-left: 20px;
+                border-bottom: 2px solid black;
+            }
+
+            .judul h1 {
+                text-shadow: 3px 2px firebrick;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .menu {
+                padding: 10px 5px 10px 20px;
+                border-bottom: 2px solid black;
+            }
+
+            .menu a {
+                text-decoration: none;
+                color: firebrick;
+            }
+
+            .menu a:hover {
+                text-decoration: none;
+                color: gold;
+            }
+
+            .banner {
+                background-color: firebrick;
+                width: 800px;
+                height: 200px;
+                background-image: url(logo.png);
+                background-size: cover;
+                background-position-y: -150px;
+            }
+
+            .judulartikel {
+                padding-left: 20px;
+            }
+
+            .konten {
+                padding-top: 5px;
+                padding-left: 20px;
+                overflow: auto;
+            }
+
+            .konten img{
+                width: 200px;
+                height: 200px;
+                float: left;
+            }
+
+            .galleri{
+                border-radius:10%;
+                background-color: aquamarine;
+                width: 190px;
+                height: 150px;
+                float: left;
+                margin: 5px 5px 5px 5px;
+            }
+
+            .cover{
+                background-color: antiquewhite;
+                border-radius: 30%;
+            }
+
+            .thumbnail{
+                border-radius: 30%;
+                width: 150px;
+                height: 60px;
+                margin: 10px auto;
+                background-image: url(logo.png);
+                background-size: cover;
+                background-color: violet;
+            }
+
+            .ribbon{
+                width: 183px;
+                height: 183px;
+                position: absolute;
+                background-image: url(ribbon-new.png);
+                left: 623px;
+                top: -12px;
+            }
+
+            .panel_mode{
+                width: 150px;
+                height: 100px;
+                background-color: brown;
+            }
+
+            .kotak{
+                width: 150px;
+                height: 100px;
+                background-color: yellow;
+
+            }
+
+            .cobaevent{
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+            }
+
+            .cobaevent1{
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+
+            }
+
+            .cobaevent2{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+
+            }
+
+            .Footer{
+        width: 760px;
+        height: 40px;
+        padding-top: 0px;
+        padding-left: 10px;
+        margin: auto;
+        border: solid black 2px;
+    }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="panel_mode">
+            <br>
+            <center>
+                <button type="button" onclick="ubahwarna_dark()"> Mode Malam Hari</button>
+
+                <br>
+                <br>
+
+                <button type="button" onclick="ubahwarna_light()"> Mode Siang Hari</button>
+            </center>
+        
+        </div>
+        <div class="container">
+            <div class="ribbon">
+
+            </div>
+            <div class="judul">
+                <h1>Website Kita</h1>
+                
+            </div>
+
+            <div class="cover"> </div>
+            
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#">Profil</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="banner">
+
+            </div>
+            <div class="judulartikel">
+                <h2>Judul Artikel</h2>
+                <p>Ditulis oleh Hamba Allah</p>
+            </div>
+            
+            <div id="konten" class="konten">
+                <img src="logo.png">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum magni quia debitis nihil, eligendi suscipit quos ad nisi inventore laborum explicabo minus deserunt, quae temporibus quidem dolor, quo dolorum ipsam!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum magni quia debitis nihil, eligendi suscipit quos ad nisi inventore laborum explicabo minus deserunt, quae temporibus quidem dolor, quo dolorum ipsam!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum magni quia debitis nihil, eligendi suscipit quos ad nisi inventore laborum explicabo minus deserunt, quae temporibus quidem dolor, quo dolorum ipsam!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum magni quia debitis nihil, eligendi suscipit quos ad nisi inventore laborum explicabo minus deserunt, quae temporibus quidem dolor, quo dolorum ipsam!</p>
+            </div>
+
+            <div class="galleri">
+                <div class="thumbnail">
+                </div>
+                <h3>Ini Judul</h3>
+                <p>Ini caption</p>
+            </div>
+            <div class="galleri">
+                2
+            </div>
+            <div class="galleri">
+                3
+            </div>
+            <div class="galleri">
+                4
+            </div>
+            <div class="galleri">
+                5
+            </div>
+            <div class="galleri">
+                6
+            </div>
+            <div class="galleri">
+                7
+            </div>
+            <div class="galleri">
+                8
+            </div>
+
+            
+        </div>
+
+        <div id="cobaeventku" class="cobaevent" onclick="divkelakuan()" onmouseup="divkelakuan()" onmousedown="divkelakuan1()" >
+
+        </div>
+
+
+        <script>
+
+            function ubahwarna_dark(){
+                document.getElementById('konten').style.backgroundColor="black";
+                document.getElementById('konten').style.color="white";
+            }
+
+            function ubahwarna_light(){
+                document.getElementById('konten').style.backgroundColor="yellow";
+                document.getElementById('konten').style.color="black";
+            }
+
+            function divkelakuan(){
+
+                document.getElementById('cobaeventku').className="cobaevent1";
+            }
+
+            function divkelakuan1(){
+                document.getElementById('cobaeventku').className="cobaevent2";
+            }
+        </script>
+    </body>
+</html>
