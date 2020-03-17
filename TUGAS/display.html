@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .flex-container-column {
+            display: flex;
+            /* properti pendukung */
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .flex-container-row {
+            display: flex;
+        }
+
+        .button {
+            flex-basis: 25%;
+            /* properti pendukung */
+            font-size: 1.5em;
+            text-align: center;
+            padding: 40px;
+            cursor: pointer;
+            display: inline-block;
+            background-color: white;
+        }
+
+        .display {
+            width: 100%;
+            height: 200px;
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid black;
+            font-size: 2em;
+        }
+
+        .displayred {
+            width: 100%;
+            height: 200px;
+            padding: 10px 20px;
+            background-color: red;
+            border: 1px solid red;
+            font-size: 2em;
+        }
+
+        .displayyellow {
+            width: 100%;
+            height: 200px;
+            padding: 10px 20px;
+            background-color: yellow;
+            border: 1px solid yellow;
+            font-size: 2em;
+        }
+
+        .displaygreen {
+            width: 100%;
+            height: 200px;
+            padding: 10px 20px;
+            background-color: green;
+            border: 1px solid green;
+            font-size: 2em;
+        }
+
+        .displayblue {
+            width: 100%;
+            height: 200px;
+            padding: 10px 20px;
+            background-color: blue;
+            border: 1px solid blue;
+            font-size: 2em;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .red:hover {
+            font-weight: bold;
+            background-color: red;
+        }
+
+        .yellow:hover {
+            font-weight: bold;
+            background-color: yellow;
+        }
+
+        .green:hover {
+            font-weight: bold;
+            background-color: green;
+        }
+
+        .blue:hover {
+            font-weight: bold;
+            background-color: blue;
+        }
+
+        .red {
+            border: 5px solid red;
+            color: red;
+        }
+
+        .yellow {
+            border: 5px solid yellow;
+            color: yellow;
+        }
+
+        .green {
+            border: 5px solid green;
+            color: green;
+        }
+
+        .blue {
+            border: 5px solid blue;
+            color: blue;
+        }
+
+        @media screen and (max-width: 513px) {
+            .button {
+                padding: 10px;
+            }
+        }
+    </style>
+    <script>
+        function red() {
+            document.getElementById("display").className = "displayred";
+        }
+
+        function yellow() {
+            document.getElementById("display").className = "displayyellow";
+        }
+
+        function green() {
+            document.getElementById("display").className = "displaygreen";
+        }
+
+        function blue() {
+            document.getElementById("display").className = "displayblue";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="flex-container-column card">
+        <div class="display" id="display">
+            <h1></h1>
+        </div>
+        <div class="flex-container-row">
+            <div id="buttonred" class="button red" onclick="red()">Merah</div>
+            <div id="buttonyellow" class="button yellow" onclick="yellow()">Kuning</div>
+            <div id="buttongreen" class="button green" onclick="green()">Hijau</div>
+            <div id="buttonblue" class="button blue" onclick="blue()">Biru</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
